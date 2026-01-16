@@ -1,0 +1,8 @@
+project_id = "opuddlbtqakejgbhtfna"
+
+[functions.analyze-plant]
+verify_jwt = false
+
+[functions.search-book]
+verify_jwt = false
+verify_jwt = true

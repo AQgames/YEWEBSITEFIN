@@ -1,0 +1,238 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Nature-inspired base colors */
+    --background: 42 40% 96%;
+    --foreground: 28 25% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 28 25% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 28 25% 20%;
+
+    /* Earthy green primary */
+    --primary: 142 55% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Warm brown secondary */
+    --secondary: 28 45% 65%;
+    --secondary-foreground: 28 25% 20%;
+
+    --muted: 42 30% 90%;
+    --muted-foreground: 28 15% 50%;
+
+    /* Nature accent */
+    --accent: 88 60% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 42 20% 85%;
+    --input: 42 20% 85%;
+    --ring: 142 55% 45%;
+
+    --radius: 1rem;
+    
+    /* Seasonal theme variables */
+    --season-primary: 142 55% 45%;
+    --season-accent: 88 60% 55%;
+    --season-bg-overlay: 42 40% 96%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* Halloween theme - Spooky orange and purple */
+  [data-season="halloween"] {
+    --season-primary: 25 95% 50%;
+    --season-accent: 270 85% 45%;
+    --season-bg-overlay: 25 30% 15%;
+    --primary: 25 95% 50%;
+    --accent: 270 85% 45%;
+  }
+
+  /* Christmas theme - Disabled, using default */
+  [data-season="christmas"] {
+    /* Using default colors */
+  }
+
+  /* Spring theme */
+  [data-season="spring"] {
+    --season-primary: 330 70% 60%;
+    --season-accent: 320 70% 70%;
+    --season-bg-overlay: 330 30% 97%;
+    --primary: 330 70% 60%;
+    --accent: 150 60% 50%;
+  }
+
+  /* Summer theme */
+  [data-season="summer"] {
+    --season-primary: 45 95% 55%;
+    --season-accent: 190 85% 50%;
+    --season-bg-overlay: 45 50% 97%;
+    --primary: 190 85% 45%;
+    --accent: 45 95% 55%;
+  }
+
+  /* Autumn theme */
+  [data-season="autumn"] {
+    --season-primary: 25 75% 55%;
+    --season-accent: 15 70% 50%;
+    --season-bg-overlay: 30 40% 95%;
+    --primary: 25 75% 50%;
+    --accent: 45 80% 50%;
+  }
+
+  /* Winter theme */
+  [data-season="winter"] {
+    --season-primary: 200 70% 55%;
+    --season-accent: 210 80% 70%;
+    --season-bg-overlay: 210 30% 97%;
+    --primary: 200 70% 50%;
+    --accent: 210 80% 65%;
+  }
+
+  .dark {
+    --background: 28 30% 12%;
+    --foreground: 42 20% 90%;
+
+    --card: 28 25% 15%;
+    --card-foreground: 42 20% 90%;
+
+    --popover: 28 25% 15%;
+    --popover-foreground: 42 20% 90%;
+
+    --primary: 142 55% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 28 30% 25%;
+    --secondary-foreground: 42 20% 90%;
+
+    --muted: 28 20% 22%;
+    --muted-foreground: 42 15% 65%;
+
+    --accent: 88 60% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 75% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 28 20% 25%;
+    --input: 28 20% 25%;
+    --ring: 142 55% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Fredoka', 'Comic Neue', 'Nunito', sans-serif;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .float-delayed {
+    animation: float 3s ease-in-out infinite 1s;
+  }
+
+  .pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .snowfall {
+    animation: snowfall 10s linear infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes snowfall {
+    0% {
+      transform: translateY(-10px) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg);
+      opacity: 0.3;
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  @keyframes twinkle {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(0.8);
+    }
+  }
+
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  .twinkle {
+    animation: twinkle 2s ease-in-out infinite;
+  }
+
+  .twinkle-delayed {
+    animation: twinkle 2s ease-in-out infinite 0.5s;
+  }
+
+  .twinkle-delayed-2 {
+    animation: twinkle 2s ease-in-out infinite 1s;
+  }
+}
