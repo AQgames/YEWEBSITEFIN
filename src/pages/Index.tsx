@@ -198,7 +198,7 @@ const Index = () => {
             </span>
           </div>
           <p className="text-muted-foreground">
-            © 2025 Rootmarks. Grow your mind, plant your future. 🌱
+            © 2026 Rootmarks. Grow your mind, plant your future. 🌱
           </p>
         </div>
       </footer>
